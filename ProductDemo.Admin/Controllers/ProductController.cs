@@ -29,6 +29,7 @@ namespace ProductDemo.Admin.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.Category = _productRepository.GetAll().ToList();//amaçsız yazdık github test
             SetCategoryList();
             return View();
         }
