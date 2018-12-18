@@ -1,0 +1,110 @@
+﻿@model ProductDemo.Admin.ViewModel.HomePageModel
+@{
+    ViewBag.Title = "Ana Sayfa";
+    
+}
+<div class="well>
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-th fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">
+                                @Model.CategoryCount
+                            </div>
+                            <div>Kategori</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/Category">
+                    <div class="panel-footer">
+                        <span class="pull-left">Detaylar</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-th fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">
+                                @Model.ProductCount
+                            </div>
+                            <div>Ürün</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/Product">
+                    <div class="panel-footer">
+                        <span class="pull-left">Detaylar</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-th fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">
+                                @Model.ProductImageCount
+                            </div>
+                            <div>Resim</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/ProductImage">
+                    <div class="panel-footer">
+                        <span class="pull-left">Detaylar</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-th fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">
+                                @Model.ProductFeatureCount
+                            </div>
+                            <div>Feature</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/ProductFeature">
+                    <div class="panel-footer">
+                        <span class="pull-left">Detaylar</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

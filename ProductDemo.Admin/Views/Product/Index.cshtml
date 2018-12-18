@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProductDemo.Data.Model.Product>
+@{
+    ViewBag.Title = "Ürünler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ürünler</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ürün", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ProductName)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.ProductId })
+                @Html.ActionLink("Detaylar", "Details", new { id = item.ProductId })
+                @Html.ActionLink("Sil", "Delete", new { id = item.ProductId })
+            </td>
+        </tr>
+
+    }
+
+
+
+</table>
+

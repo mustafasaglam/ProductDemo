@@ -1,0 +1,27 @@
+﻿@model ProductDemo.Data.Model.Category
+
+@{
+    ViewBag.Title = "Kategori Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Kategori Detay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.CategoryId }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>
