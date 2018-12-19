@@ -1,0 +1,43 @@
+﻿@model ProductDemo.Data.Model.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Ürün</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductImages)
+        </dt>
+        @{
+            var productFistImage = Model.ProductImages.FirstOrDefault();
+            if (productFistImage != null)
+            {
+                <dd>
+                    <img src="@string.Format("data:{0};base61,{1}", productFistImage.ContentType, Convert.ToBase64String(productFistImage.Content)) " />
+                </dd>
+            }
+
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Listeye Dön", "Index")
+</p>
