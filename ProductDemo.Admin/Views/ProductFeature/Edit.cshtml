@@ -1,0 +1,48 @@
+﻿@model ProductDemo.Data.Model.ProductFeature
+
+@{
+    ViewBag.Title = "Düzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ürün özellik Düzenleme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>@ViewBag.SelectedProduct.ProductName ProductFeature</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ProductFeatureId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FeatureName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FeatureName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FeatureName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FeatureValue, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FeatureValue, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FeatureValue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Listeye Dön", "Index",new { id=Model.Product.ProductId})
+</div>

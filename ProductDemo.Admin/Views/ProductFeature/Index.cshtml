@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProductDemo.Data.Model.ProductFeature>
+
+@{
+    ViewBag.Title = "Ürün özellikleri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.SelectedProduct.ProductName Index</h2>
+
+<p>
+    @Html.ActionLink("Yeni ekle", "Create", new { id=ViewBag.SelectedProduct.ProductId})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeatureName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeatureValue)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeatureName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeatureValue)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.ProductFeatureId, ProductId=ViewBag.SelectedProduct.ProductId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.ProductFeatureId, ProductId = ViewBag.SelectedProduct.ProductId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.ProductFeatureId })
+        </td>
+    </tr>
+}
+
+</table>
+

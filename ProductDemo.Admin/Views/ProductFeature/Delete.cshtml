@@ -1,0 +1,49 @@
+﻿@model ProductDemo.Data.Model.ProductFeature
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Silmek istediğinize eminmisiniz?</h3>
+<div>
+    <h4>Ürün özellikleri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureValue)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Dön", "Index",new { id=Model.Product.ProductId})
+        </div>
+    }
+</div>
