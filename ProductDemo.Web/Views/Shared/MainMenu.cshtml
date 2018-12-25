@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ProductDemo.Data.Model.Category>
+    <div>
+        @{ 
+           
+                <ul class="nav nav-pills nav-stacked">
+                    @foreach (var category in Model)
+                    {
+                        <li><a href="/Category/Index/@category.CategoryId">@category.CategoryName</a></li>
+                    }
+                </ul>
+            
+        }
+    </div>

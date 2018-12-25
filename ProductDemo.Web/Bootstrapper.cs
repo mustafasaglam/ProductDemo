@@ -25,7 +25,7 @@ namespace ProductDemo.Web
             builder.RegisterType<CategoryRepository>().As<ICategoryRepository>();
             builder.RegisterType<ProductRepository>().As<IProductRepository>();
             builder.RegisterType<ProductFeatureRepository>().As<IProductFeatureRepository>();
-            builder.RegisterType<ProductImagerepository>().As<IProductFeatureRepository>();
+            builder.RegisterType<ProductImagerepository>().As<IProductImageRepository>();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

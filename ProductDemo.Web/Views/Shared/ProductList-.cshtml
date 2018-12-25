@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ProductDemo.Data.Model.Product>
+    @foreach (var product in Model)
+    {
+        <div class="product">
+            <div class="product-title">
+                <h3>@product.ProductName</h3>
+            </div>
+        </div>
+        <div class="product-image">
+            <a href="@Url.Action("Index", "Product", new { id = product.ProductId })}">
+                <img width="300" height="200" src="@string.Format("data:{0};base64,{1}",product.ProductImages.FirstOrDefault().ContentType)" />
+            </a>
+        </div>
+        <div class="price">
+            @{ 
+                var priceFeature = product.ProductFeatures.FirstOrDefault(x => x.FeatureName == "Fiyat");
+                if (priceFeature!=null)
+                {
+                    <span>@priceFeature.FeatureValue TL</span>
+                }
+                else
+                {
+                    <span> Fiyat Girilmedi</span>
+                }
+            }
+        </div>
+    }

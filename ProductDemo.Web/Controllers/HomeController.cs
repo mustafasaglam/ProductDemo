@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProductDemo.Core.Infrastructure;
+using ProductDemo.Data.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,25 +8,27 @@ using System.Web.Mvc;
 
 namespace ProductDemo.Web.Controllers
 {
+    
     public class HomeController : Controller
     {
+        private readonly ICategoryRepository _categoryRepository;
+        public HomeController(ICategoryRepository categoryRepository)
+        {
+            _categoryRepository = categoryRepository;
+        }
         public ActionResult Index()
         {
-            return View();
+            var categoryList = _categoryRepository.GetAll().ToList() ;
+            return View(categoryList);
         }
 
-        public ActionResult About()
+        public ActionResult ProductList1()
         {
-            ViewBag.Message = "Your application description page.";
+            var product = _categoryRepository.GetAll().ToList();
 
-            return View();
+            return View(product);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }
